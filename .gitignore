@@ -1,0 +1,12 @@
+# RENPY FILES
+*.rpyc
+log.txt
+traceback.txt
+game/gui/
+game/tl/
+game/saves/
+game/cache/
+
+# Visual Studio
+.vs/
+.vscode/
