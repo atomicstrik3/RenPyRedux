@@ -1,12 +1,13 @@
 ﻿init python:
     import core
+    from core import game
 
 label start:
 
     "Hello, buddy."
 
-    scene expression core.get_background("player_room")
-    $ core.main()
+    scene expression game.get_background()
+    $ game.main()
 
     return
 
@@ -15,7 +16,9 @@ screen test():
 
     frame:
         has vbox
-        text "Time of Day: [core.get_time_of_day()]"
+        text "Time of Day: [game.get_time()]"
+        text "Time Index: [game.time_index]"
+        text "Day: [game.day]"
 
     frame:
         align(0.5, 0.5)
@@ -23,4 +26,4 @@ screen test():
 
         text "This is the Game Loop!" size 40
         textbutton "Advance Time":
-            action Function(lambda: (core.advance_time(), core.update("player_room")) )
+            action Function(lambda: (game.advance_time(), game.update_scene()) )
